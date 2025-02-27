@@ -7,7 +7,6 @@ async function loadTranslations(language) {
     return await response.json();
   } catch (error) {
     console.error(error);
-    // אם קובץ התרגום לא נמצא, נחזיר תרגומים ברירת מחדל
     if (language != 'en')
     {
       return loadTranslations('en');
@@ -51,14 +50,12 @@ async function yAccessibility(options = {}) {
   link2.href = 'yaccessibility.css';
   document.head.appendChild(link2);
 
-  // יצירת כפתור פתיחת סרגל הנגישות
   const accessibilityButton = document.createElement('button');
   accessibilityButton.id = 'y-accessibility-button';
   accessibilityButton.setAttribute('aria-label', translations['open_accessibility_bar']);
   accessibilityButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ffffff" d="M423.9 255.8L411 413.1c-3.3 40.7-63.9 35.1-60.6-4.9l10-122.5-41.1 2.3c10.1 20.7 15.8 43.9 15.8 68.5 0 41.2-16.1 78.7-42.3 106.5l-39.3-39.3c57.9-63.7 13.1-167.2-74-167.2-25.9 0-49.5 9.9-67.2 26L73 243.2c22-20.7 50.1-35.1 81.4-40.2l75.3-85.7-42.6-24.8-51.6 46c-30 26.8-70.6-18.5-40.5-45.4l68-60.7c9.8-8.8 24.1-10.2 35.5-3.6 0 0 139.3 80.9 139.5 81.1 16.2 10.1 20.7 36 6.1 52.6L285.7 229l106.1-5.9c18.5-1.1 33.6 14.4 32.1 32.7zm-64.9-154c28.1 0 50.9-22.8 50.9-50.9C409.9 22.8 387.1 0 359 0c-28.1 0-50.9 22.8-50.9 50.9 0 28.1 22.8 50.9 50.9 50.9zM179.6 456.5c-80.6 0-127.4-90.6-82.7-156.1l-39.7-39.7C36.4 287 24 320.3 24 356.4c0 130.7 150.7 201.4 251.4 122.5l-39.7-39.7c-16 10.9-35.3 17.3-56.1 17.3z"/></svg>`;
   shadowRoot.appendChild(accessibilityButton);
 
-  // יצירת סרגל הנגישות
   const accessibilityBar = document.createElement('div');
   accessibilityBar.id = 'y-accessibility-bar';
   accessibilityBar.setAttribute('aria-label', translations['accessibility_bar']);
@@ -66,7 +63,6 @@ async function yAccessibility(options = {}) {
   accessibilityBar.setAttribute('aria-expanded', 'false');
   accessibilityBar.setAttribute('style', 'transform: translateX(-100%);');
 
-  // יצירת כפתורים
   const buttons = [
     { id: 'y-accessibility-contrast', label: translations['contrast'], action: toggleContrast, svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M448 256c0-106-86-192-192-192l0 384c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg>' },
     { id: 'y-accessibility-colorless', label: translations['colorless'], action: toggleColorless, svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 512c53.2 0 101.4-21.6 136.1-56.6l-298.3-235C140 257.1 128 292.3 128 320c0 106 86 192 192 192zM505.2 370.7c4.4-16.2 6.8-33.1 6.8-50.7c0-91.2-130.2-262.3-166.6-308.3C339.4 4.2 330.5 0 320.9 0l-1.8 0c-9.6 0-18.5 4.2-24.5 11.7C277.8 33 240.7 81.3 205.8 136L38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L505.2 370.7zM224 336c0 44.2 35.8 80 80 80c8.8 0 16 7.2 16 16s-7.2 16-16 16c-61.9 0-112-50.1-112-112c0-8.8 7.2-16 16-16s16 7.2 16 16z"/></svg>' },
@@ -84,7 +80,6 @@ async function yAccessibility(options = {}) {
     buttons.push(statementButton);
   }
 
-  // add reset button to buttons
   let resetbutton = { id: 'y-accessibility-reset', label: translations['reset'], action: resetAccessibility, svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9L0 168c0 13.3 10.7 24 24 24l110.1 0c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24l0 104c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65 0-94.1c0-13.3-10.7-24-24-24z"/></svg>'};
   buttons.push(resetbutton);
 
@@ -97,7 +92,6 @@ async function yAccessibility(options = {}) {
   buttonsWrap.id = 'y-accessibility-buttons-wrap';
   accessibilityBar.appendChild(buttonsWrap);
 
-  // הוספת כפתורים לסרגל
   buttons.forEach(button => {
     const btn = document.createElement('button');
     btn.id = button.id;
@@ -114,16 +108,16 @@ async function yAccessibility(options = {}) {
       if (sessionStorage.getItem(button.id) === 'true') {
         checkmark.style.display = 'inline';
         checkmark.setAttribute('aria-hidden', 'false');
-        btn.classList.add('y-accessibility-button-active'); // Add class to the button
+        btn.classList.add('y-accessibility-button-active');
       } else {
         checkmark.style.display = 'none';
         checkmark.setAttribute('aria-hidden', 'true');
-        btn.classList.remove('y-accessibility-button-active'); // Remove class from the button
+        btn.classList.remove('y-accessibility-button-active');
       }
     };
 
   
-    updateCheckmark(); // עדכון ראשוני
+    updateCheckmark(); 
   
     btn.addEventListener('click', () => {
       button.action();
@@ -139,10 +133,8 @@ async function yAccessibility(options = {}) {
   credits.innerHTML = translations['credits'] +' <a href="#" target="_blank">yAccessibility</a>';
   accessibilityBar.appendChild(credits);
 
-  // הוספת סרגל לדף
   shadowRoot.appendChild(accessibilityBar);
 
-  // פונקציות לכפתורים
   function toggleContrast() {
     document.body.classList.toggle('y-accessibility-contrast');
     saveSettings('y-accessibility-contrast', document.body.classList.contains('y-accessibility-contrast'));
@@ -184,7 +176,6 @@ async function yAccessibility(options = {}) {
   }
 
   function altText() {
-    // מציג תיאור של תמונות על בסיס ה- alt
     const images = document.querySelectorAll('img');
     images.forEach(image => {
       const alt = image.getAttribute('alt');
@@ -192,10 +183,8 @@ async function yAccessibility(options = {}) {
 
       if (alt) {
           if (existingAltText && existingAltText.classList.contains('y-accessibility-alt-text')) {
-              // אם האלמנט כבר קיים, נמחק אותו
               existingAltText.remove();
           } else {
-              // אם האלמנט לא קיים, ניצור אותו
               image.insertAdjacentHTML('afterend', `<div class="y-accessibility-alt-text">${alt}</div>`);
           }
       } else if (existingAltText && existingAltText.classList.contains('y-accessibility-alt-text'))
@@ -219,29 +208,25 @@ async function yAccessibility(options = {}) {
     document.body.style.fontSize = '';
     sessionStorage.clear();
 
-    // מעבר על הכפתורים השמורים ועדכון סימון ה"וי"
     markedButtons.forEach(button => {
       const checkmark = button.querySelector('.y-accessibility-checkmark');
       if (checkmark) {
-        checkmark.style.display = 'none'; // הסתרת סימן ה"וי"
+        checkmark.style.display = 'none'; 
       }
 
       button.classList.remove('y-accessibility-button-active');
     });
 
-    // מחיקת תיאורי תמונות
     const altTextElements = document.querySelectorAll('.y-accessibility-alt-text');
     altTextElements.forEach(element => {
       element.remove();
     }); 
   }
 
-  // שמירת הגדרות ב-session storage
   function saveSettings(key, value) {
     sessionStorage.setItem(key, value);
   }
 
-  // טעינת הגדרות משמורות
   function loadSettings() {
     if (sessionStorage.getItem('y-accessibility-contrast') === 'true') {
       document.body.classList.add('y-accessibility-contrast');
@@ -270,15 +255,12 @@ async function yAccessibility(options = {}) {
     }
   }
 
-  // טעינת הגדרות בעת טעינת הדף
   loadSettings();
 
-  // טיפול באירוע לחיצה על כפתור פתיחת הסרגל
   accessibilityButton.addEventListener('click', () => {
     toggleYAccessibility();
   });
 
-  // טיפול באירוע לחיצה על מקש Escape
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
       toggleYAccessibility();
@@ -286,7 +268,6 @@ async function yAccessibility(options = {}) {
   });
 
   function toggleYAccessibility() {
-    // open the bar
     accessibilityBar.classList.toggle('y-accessibility-active');
     const isActive = accessibilityBar.classList.contains('y-accessibility-active');
     accessibilityBar.setAttribute('aria-hidden', !isActive); 
@@ -298,7 +279,7 @@ async function yAccessibility(options = {}) {
       accessibilityBar.setAttribute('style', 'transform: translateX(-100%);');
     }
 
-    // make the buttons not hidden
+
     const buttons = accessibilityBar.querySelectorAll('button');
     buttons.forEach(button => {
       button.setAttribute('aria-hidden', !isActive);
@@ -331,7 +312,7 @@ async function yAccessibility(options = {}) {
       });
   }
 
-  // פונקציה להחלפת אייקון הכפתור
+
   function toggleButtonIcon() {
     const isActive = accessibilityBar.classList.contains('y-accessibility-active');
     const newIcon = isActive

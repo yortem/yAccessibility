@@ -2,7 +2,7 @@
 
 [![GitHub license](https://img.shields.io/github/license/yortem/yAccessibility)](https://github.com/yortem/yAccessibility/blob/main/LICENSE)
 
-**yAccessibility** is a lightweight and easy-to-integrate accessibility widget for websites. It allows users to customize their browsing experience according to their needs, helping to make the site accessible for people with disabilities.
+**yAccessibility** is a free lightweight and easy-to-integrate accessibility widget for websites. It allows users to customize their browsing experience according to their needs, helping to make the site accessible for people with disabilities.
 
 ![A screenshot of the widget](yaccessibility-screenshot.jpg)
 
