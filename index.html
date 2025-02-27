@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Page - Accessibility</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: left; /* Changed from right */
+            direction: ltr; /* Changed from rtl */
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            background-color: #006DD5;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+            text-align: center;
+        }
+
+        a {
+            color: #006DD5;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            padding: 10px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+          max-width: 800px;
+          margin: 20px auto;
+          background-color: #fff;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+        }
+        ul {
+          list-style-type: disc;
+          padding-left: 40px; /* Changed from right */
+        }
+        footer {
+          background-color: #333;
+          color: white;
+          padding: 10px;
+          text-align: center;
+          margin-top: 20px;
+        }
+
+        @keyframes flickerAnimation {
+            0%   { opacity:1; }
+            50%  { opacity:0; }
+            100% { opacity:1; }
+            }
+            @-o-keyframes flickerAnimation{
+            0%   { opacity:1; }
+            50%  { opacity:0; }
+            100% { opacity:1; }
+            }
+            @-moz-keyframes flickerAnimation{
+            0%   { opacity:1; }
+            50%  { opacity:0; }
+            100% { opacity:1; }
+            }
+            @-webkit-keyframes flickerAnimation{
+            0%   { opacity:1; }
+            50%  { opacity:0; }
+            100% { opacity:1; }
+            }
+            .animate-flicker {
+            -webkit-animation: flickerAnimation .5s infinite;
+            -moz-animation: flickerAnimation .5s infinite;
+            -o-animation: flickerAnimation .5s infinite;
+                animation: flickerAnimation .5s infinite;
+            }
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Example Site</h1>
+    <div class="container">
+        <p>
+            Welcome to our example site! We are delighted to have you here. This site is designed to demonstrate the use of our accessibility library, yAccessibility.
+        </p>
+        <p>
+            Our goal is to make the internet a more accessible place for everyone. And also make it easier for websites owners to have their site a bit more accessible and comfortable without paying for widgets.
+        </p>
+        <p>
+            Here are some things you can do on this site:
+            <ul>
+                <li>Try out our accessibility tools</li>
+                <li>Change the contrast</li>
+                <li>Highlight links</li>
+                <li>Change the text size</li>
+                <li>And a lot more</li>
+            </ul>
+        </p>
+        <p>
+            Please feel free to explore the site and use the accessibility toolbar located in the bottom left corner. <a href="#">This is a link for example</a>
+        </p>
+
+        <img src="https://placehold.co/600x400/EEE/31343C" alt="Example Image" style="width: 100%; margin-top: 20px;">
+        <p>
+            We'd love to hear from you! If you have any questions, comments, or suggestions, please write to us. Thank you very much for visiting!
+        </p>
+
+        <p class="animate-flicker">
+          For any question, please contact us
+        </p>
+    </div>
+    <footer>
+      <p>All rights reserved &copy; 2024</p>
+    </footer>
+
+    <script src="yaccessibility.js"></script>
+    <script>
+        yAccessibility(
+            { 
+                language: 'en', /* Changed from he */
+                statement: 'accessibility-statement.html'
+            }
+        );
+
+    </script>
+</body>
+</html>

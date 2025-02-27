@@ -1,0 +1,211 @@
+#y-accessibility-bar, #y-accessibility-bar * {
+    box-sizing: border-box !important;
+}
+
+#y-accessibility-button {
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    background-color: #006DD5;
+    border: none;
+    color: white;
+    padding: 10px;
+    z-index: 9999;
+    cursor: pointer;
+    width: 50px;
+    height: 50px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 5px 5px 0; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+    transition: background-color 0.3s ease;
+  }
+  
+  #y-accessibility-button:hover,
+  #y-accessibility-button:focus {
+    background-color: #0056b3; /* צבע מעבר בהעברה/מיקוד */
+    outline: none; /* הסר קו מתאר ברירת מחדל */
+  }
+  
+  #y-accessibility-button svg {
+    color: white;
+    width: 24px; /* גודל SVG קבוע */
+    height: 24px;
+  }
+
+  #y-accessibility-bar {
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    max-width: 90%;
+    height: 100vh;
+    background-color: #f7fbff;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    z-index: 9998;
+    transition: transform 0.3s ease; /* Corrected: '0.3sease' to '0.3s ease' */
+    align-content: center;
+    overflow-y: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    transition: transform 0.3s ease;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  #y-accessibility-title {
+    font-size: 1.5rem;
+    background-color: #006DD5;
+    color: white;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border-bottom: 1px solid #a3c3e1;
+  }
+
+  #y-accessibility-buttons-wrap {
+    width: 100%;
+  }
+
+  #y-accessibility-bar button {
+    position: relative;
+    padding: 10px;
+    border: 2px solid #006dd5;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    align-items: center;
+    min-height: 100px;
+    transition: background-color 0.3sease, border-color 0.3sease;
+    text-align: center;
+    width: calc(50% - 20px);
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+    float: right;
+    margin: 10px;
+  }
+
+  #y-accessibility-bar button:hover,
+  #y-accessibility-bar button:focus {
+    background-color: #f5f5f5; 
+    outline: none; 
+  }
+  
+  #y-accessibility-bar button span {
+    font-size: 0.875rem; /* גודל גופן תגובתי */
+    margin-top: 5px; /* מרווח בין SVG לטקסט */
+  }
+  
+  #y-accessibility-bar button svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  #y-accessibility-credits {
+    font-size: 0.875rem;
+    background-color: #f7fbff;
+    color: #333;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .y-accessibility-highlight-links a {
+    color: yellow !important;
+    border: 2px solid red !important;
+    text-decoration: underline !important;
+    background-color: black !important;
+  }
+
+  .y-accessibility-contrast, .y-accessibility-contrast * {
+    background-color: #000 !important;
+    color: white !important;
+  }
+
+  .y-accessibility-colorless {
+    filter: grayscale(100%) !important;
+  }
+
+  .y-accessibility-stop-flickering * {
+    animation: none !important;
+  }
+
+  #y-accessibility-reset {
+    width: calc(100% - 20px) !important;
+    margin: 10px !important;
+    min-height: 50px !important;
+  }
+
+  .y-accessibility-button-active {
+    background-color: #006dd5 !important;
+    color: white;
+  }
+
+  .y-accessibility-button-active * {
+    color: white !important;
+    fill: white !important;
+  }
+
+  #y-accessibility-credits {
+    font-size: 13px;
+    margin-bottom: 80px;
+  }
+  
+  #y-accessibility-credits a {
+    color: #006dd5;
+  }
+
+  .y-accessibility-checkmark {
+    color: yellow !important;
+    background-color: #008700 !important;
+    position: absolute;
+    right: 3px;
+    top: 0px;
+    border-radius: 50%;
+    border: 2px solid white;
+    width: 20px;
+    height: 20px;
+    font-size: 12px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .y-accessibility-simple-font {
+    font-family: 'Arial', sans-serif !important;
+  }
+
+  .y-accessibility-alt-text {
+    position: absolute;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 9999;
+    font-size: 1rem;
+  }
+
+  body.y-accessibility-big-cursor {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath d='M0 55.2L0 426c0 12.2 9.9 22 22 22c6.3 0 12.4-2.7 16.6-7.5L121.2 346l58.1 116.3c7.9 15.8 27.1 22.2 42.9 14.3s22.2-27.1 14.3-42.9L179.8 320l118.1 0c12.2 0 22.1-9.9 22.1-22.1c0-6.3-2.7-12.3-7.4-16.5L38.6 37.9C34.3 34.1 28.9 32 23.2 32C10.4 32 0 42.4 0 55.2z'/%3E%3C/svg%3E") 0 0, auto;  
+  }
+
+  /* screen */
+  
+  /* התאמות למכשירים קטנים יותר */
+  @media (max-width: 600px) {
+    #y-accessibility-bar {
+      width: 100%; /* תפוס את כל הרוחב במסכים קטנים */
+      max-width: 100%;
+      padding: 10px;
+    }
+
+  }
