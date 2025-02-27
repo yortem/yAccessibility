@@ -24,13 +24,13 @@
   
   #y-accessibility-button:hover,
   #y-accessibility-button:focus {
-    background-color: #0056b3; /* צבע מעבר בהעברה/מיקוד */
-    outline: none; /* הסר קו מתאר ברירת מחדל */
+    background-color: #0056b3; 
+    outline: none; 
   }
   
   #y-accessibility-button svg {
     color: white;
-    width: 24px; /* גודל SVG קבוע */
+    width: 24px;
     height: 24px;
   }
 
@@ -50,7 +50,7 @@
     text-align: center;
     align-items: center;
     z-index: 9998;
-    transition: transform 0.3s ease; /* Corrected: '0.3sease' to '0.3s ease' */
+    transition: transform 0.3s ease; 
     align-content: center;
     overflow-y: auto;
     flex-wrap: nowrap;
@@ -101,8 +101,8 @@
   }
   
   #y-accessibility-bar button span {
-    font-size: 0.875rem; /* גודל גופן תגובתי */
-    margin-top: 5px; /* מרווח בין SVG לטקסט */
+    font-size: 0.875rem; 
+    margin-top: 5px; 
   }
   
   #y-accessibility-bar button svg {
@@ -200,10 +200,9 @@
 
   /* screen */
   
-  /* התאמות למכשירים קטנים יותר */
   @media (max-width: 600px) {
     #y-accessibility-bar {
-      width: 100%; /* תפוס את כל הרוחב במסכים קטנים */
+      width: 100%; 
       max-width: 100%;
       padding: 10px;
     }

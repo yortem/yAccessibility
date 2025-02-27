@@ -130,7 +130,7 @@ async function yAccessibility(options = {}) {
 
   const credits = document.createElement('div');
   credits.id = 'y-accessibility-credits';
-  credits.innerHTML = translations['credits'] +' <a href="#" target="_blank">yAccessibility</a>';
+  credits.innerHTML = translations['credits'] +' <a href="https://github.com/yortem/yAccessibility" target="_blank">yAccessibility</a>';
   accessibilityBar.appendChild(credits);
 
   shadowRoot.appendChild(accessibilityBar);
