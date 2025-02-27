@@ -1,4 +1,4 @@
-# yAccessibility - Website Accessibility Widget
+# yAccessibility - Free Accessibility Widget
 
 [![GitHub license](https://img.shields.io/github/license/yortem/yAccessibility)](https://github.com/yortem/yAccessibility/blob/main/LICENSE)
 
