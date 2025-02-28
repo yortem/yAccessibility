@@ -40,14 +40,21 @@ async function yAccessibility(options = {}) {
   document.body.appendChild(shadowHost);
   const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
 
+  const scriptTag = document.currentScript;
+  let basePath = '';
+  if (scriptTag) {
+    const scriptPath = scriptTag.src;
+    basePath = scriptPath.substring(0, scriptPath.lastIndexOf('/') + 1);
+  }
+
   const link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = 'yaccessibility.css';
+  link.href = basePath + 'yaccessibility.css'; 
   shadowRoot.appendChild(link);
 
   const link2 = document.createElement('link');
   link2.rel = 'stylesheet';
-  link2.href = 'yaccessibility.css';
+  link2.href = basePath + 'yaccessibility.css';
   document.head.appendChild(link2);
 
   const accessibilityButton = document.createElement('button');
