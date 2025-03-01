@@ -87,7 +87,7 @@ async function yAccessibility(options = {}) {
   };
 
   const settings = { ...defaultOptions, ...options };
-  const { language, statement, direction, verticalPosition, verticalOffset } = settings;
+  const { language, statement, direction, verticalPosition, verticalOffset, contentElementId } = settings;
 
   const basePath = getScriptBasePath();
   console.log('basePath: '+ basePath);
@@ -139,8 +139,13 @@ async function yAccessibility(options = {}) {
     { id: 'y-accessibility-decrease-font', label: translations['decrease_font'], action: decreaseFont, svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M254 52.8C249.3 40.3 237.3 32 224 32s-25.3 8.3-30 20.8L57.8 416 32 416c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-1.8 0 18-48 159.6 0 18 48-1.8 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-25.8 0L254 52.8zM279.8 304l-111.6 0L224 155.1 279.8 304z"/></svg>' },
     { id: 'y-accessibility-alt-text-body', label: translations['alt_text'], action: altText, svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M160 32c-35.3 0-64 28.7-64 64l0 224c0 35.3 28.7 64 64 64l352 0c35.3 0 64-28.7 64-64l0-224c0-35.3-28.7-64-64-64L160 32zM396 138.7l96 144c4.9 7.4 5.4 16.8 1.2 24.6S480.9 320 472 320l-144 0-48 0-80 0c-9.2 0-17.6-5.3-21.6-13.6s-2.9-18.2 2.9-25.4l64-80c4.6-5.7 11.4-9 18.7-9s14.2 3.3 18.7 9l17.3 21.6 56-84C360.5 132 368 128 376 128s15.5 4 20 10.7zM192 128a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM48 120c0-13.3-10.7-24-24-24S0 106.7 0 120L0 344c0 75.1 60.9 136 136 136l320 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-320 0c-48.6 0-88-39.4-88-88l0-224z"/></svg>' },
     { id: 'y-accessibility-big-cursor', label: translations['big_cursor'], action: bigCursor, svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M0 55.2L0 426c0 12.2 9.9 22 22 22c6.3 0 12.4-2.7 16.6-7.5L121.2 346l58.1 116.3c7.9 15.8 27.1 22.2 42.9 14.3s22.2-27.1 14.3-42.9L179.8 320l118.1 0c12.2 0 22.1-9.9 22.1-22.1c0-6.3-2.7-12.3-7.4-16.5L38.6 37.9C34.3 34.1 28.9 32 23.2 32C10.4 32 0 42.4 0 55.2z"/></svg>'},
-    { id: 'y-accessibility-stop-flickering', label: translations['stop_flickering'], action: stopFlickering, svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm192-96l128 0c17.7 0 32 14.3 32 32l0 128c0 17.7-14.3 32-32 32l-128 0c-17.7 0-32-14.3-32-32l0-128c0-17.7 14.3-32 32-32z"/></svg>'}
+    { id: 'y-accessibility-stop-flickering', label: translations['stop_flickering'], action: stopFlickering, svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm192-96l128 0c17.7 0 32 14.3 32 32l0 128c0 17.7-14.3 32-32 32l-128 0c-17.7 0-32-14.3-32-32l0-128c0-17.7 14.3-32 32-32z"/></svg>'},
   ];
+
+  if (contentElementId != null) {
+    let readAloudButton = { id: 'y-accessibility-read-aloud', label: translations['read_aloud'], action: readAloud, svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M533.6 32.5C598.5 85.2 640 165.8 640 256s-41.5 170.7-106.4 223.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C557.5 398.2 592 331.2 592 256s-34.5-142.2-88.7-186.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM473.1 107c43.2 35.2 70.9 88.9 70.9 149s-27.7 113.8-70.9 149c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C475.3 341.3 496 301.1 496 256s-20.7-85.3-53.2-111.8c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zm-60.5 74.5C434.1 199.1 448 225.9 448 256s-13.9 56.9-35.4 74.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C393.1 284.4 400 271 400 256s-6.9-28.4-17.7-37.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM301.1 34.8C312.6 40 320 51.4 320 64l0 384c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352 64 352c-35.3 0-64-28.7-64-64l0-64c0-35.3 28.7-64 64-64l67.8 0L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3z"/></svg>'}
+    buttons.push(readAloudButton);
+  }
 
   if (statement != null) {
     let statementButton = { id: 'y-accessibility-page', label: translations['accessibility_statement'], action: () => window.open(statement, '_blank'), svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16L48 64c0-8.8 7.2-16 16-16l160 0 0 80c0 17.7 14.3 32 32 32l80 0 0 288c0 8.8-7.2 16-16 16L64 464zM64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-293.5c0-17-6.7-33.3-18.7-45.3L274.7 18.7C262.7 6.7 246.5 0 229.5 0L64 0zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0z"/></svg>' };
@@ -271,7 +276,7 @@ async function yAccessibility(options = {}) {
 
 
   function resetAccessibility() {
-    document.body.classList.remove('y-accessibility-contrast', 'y-accessibility-colorless','y-accessibility-highlight-links', 'y-accessibility-stop-flickering', 'y-accessibility-simple-font', 'y-accessibility-alt-text-body');
+    document.body.classList.remove('y-accessibility-contrast', 'y-accessibility-read-aloud', 'y-accessibility-colorless','y-accessibility-highlight-links', 'y-accessibility-stop-flickering', 'y-accessibility-simple-font', 'y-accessibility-alt-text-body');
     document.body.style.fontSize = '';
     sessionStorage.clear();
 
@@ -288,6 +293,8 @@ async function yAccessibility(options = {}) {
     altTextElements.forEach(element => {
       element.remove();
     }); 
+
+    speechSynthesis.cancel();
   }
 
   function saveSettings(key, value) {
@@ -320,6 +327,7 @@ async function yAccessibility(options = {}) {
       document.body.classList.add('y-accessibility-alt-text-body');
       altText();
     }
+    document.body.classList.remove('y-accessibility-read-aloud');
   }
 
   loadSettings();
@@ -399,5 +407,59 @@ async function yAccessibility(options = {}) {
   }
 
   toggleFocusableElements(true);
+
+  function readAloud() {
+    // Check if already reading
+    if (speechSynthesis.speaking) {
+      stopReadingAloud(); // Stop current speech
+      return;
+    }
+  
+    const contentToRead = document.getElementById(contentElementId);
+  
+    if (!contentToRead) {
+      console.error(`Element with ID '${contentElementId}' not found.`);
+      return;
+    }
+    
+    const text = contentToRead.textContent;
+  
+    if (!text || text.trim() === "") {
+      console.warn("No text found to read.");
+      return;
+    }
+  
+    const utterance = new SpeechSynthesisUtterance(text);
+  
+    // set language
+    utterance.lang = language;
+  
+    // on End event
+    utterance.onend = (event) => {
+      console.log('Speech finished naturally.');
+      endReading();
+    };
+  
+    // on error event
+    utterance.onerror = (event) => {
+      console.error('Speech error:', event.error);
+      endReading();
+    };
+  
+    speechSynthesis.speak(utterance);
+    document.body.classList.add('y-accessibility-read-aloud');
+    saveSettings('y-accessibility-read-aloud', true);
+  }
+  
+  function stopReadingAloud() {
+    speechSynthesis.cancel();
+    endReading();
+  }
+  
+  function endReading() {
+    document.body.classList.remove('y-accessibility-read-aloud');
+    saveSettings('y-accessibility-read-aloud', false);
+  }
+  
 
 }

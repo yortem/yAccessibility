@@ -16,6 +16,7 @@
 *   **Big Cursor:** Change the cursor to a larger size for better visibility.
 *   **Multi-Language Support:** The widget supports multiple languages, and you can contribute new translations!
 *   **Easy Integration:** The widget can be easily integrated into any website.
+*   **Read Aloud:** Reads the content of the page aloud.
 *   **Open Source:** The widget's code is available to everyone, allowing for modifications and contributions.
 *   **Reset:** Button that allows to reset all changes.
 *   **Statement page:** Button that opens the statement page on your site.
@@ -57,6 +58,8 @@ If you want to use a CDN, skip steps 1-2.
         *   **`statement`:** (Optional, default: `null`) Specifies the URL to your accessibility statement page. If provided, a button linking to this page will be added to the widget.
         *   **`verticalPosition`:** (Optional, default: `'bottom'`) Specifies the vertical position of the accessibility button. It can be either `'top'` or `'bottom'`.
         *   **`verticalOffset`:** (Optional, default: `20`) Specifies the vertical offset in pixels from the top or bottom edge of the screen, depending on the `verticalPosition` setting.
+        *   **`contentElementId`:** (Optional) Specifies the element ID from which the text will be read aloud. By default, this option is disabled. 
+
 
 
     **Example of using default values:**
@@ -72,7 +75,8 @@ If you want to use a CDN, skip steps 1-2.
                 language: 'he', 
                 statement: 'accessibility-statement.html',
                 verticalPosition: 'top',
-                verticalOffset: 40 
+                verticalOffset: 40,
+                contentElementId: 'the-content'
             });
         </script>
     ```
@@ -101,6 +105,7 @@ Each JSON file contains key-value pairs. The key is a unique identifier, and the
     "decrease_font": "Decrease Font Size",
     "stop_flickering": "Stop Animations",
     "big_cursor": "Big Cursor",
+    "read_aloud": "Read Aloud",
     "accessibility_statement": "Accessibility Statement",
     "reset": "Reset",
     "credits": "Accessibility widget by "

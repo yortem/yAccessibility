@@ -89,7 +89,7 @@
 </head>
 <body>
     <h1>Welcome to the Example Site</h1>
-    <div class="container">
+    <div id="the-content" class="container">
         <p>
             Welcome to our example site! We are delighted to have you here. This site is designed to demonstrate the use of our accessibility library, yAccessibility.
         </p>
@@ -129,6 +129,7 @@
             { 
                 language: 'en', /* Changed from he */
                 statement: 'accessibility-statement.html',
+                contentElementId : 'the-content',
             }
         );
 
