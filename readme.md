@@ -7,6 +7,7 @@
 ## Key Features
 
 *   **Color Contrast:** Change color contrast for improved readability.
+*   **Grayscale:** Convert the website to grayscale for users with specific visual needs.
 *   **Highlight Links:** Highlight links to make navigation easier.
 *   **Readable Font:** Switch to a more readable font.
 *   **Image Description:** Display image descriptions (alt text).
