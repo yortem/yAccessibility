@@ -22,14 +22,29 @@
 *   **Reset:** Button that allows to reset all changes.
 *   **Statement page:** Button that opens the statement page on your site.
 
-## Installation and Usage
+## Installation and Usage 
+
+If you want to use a CDN, skip steps 1-2. 
 
 1.  **Download Files:** Download the `yaccessibility.js`, `yaccessibility.css` files, and `languages` folder from the repository.
-2.  **Add to Website:** Add the files to your website.
+2.  **Add to Website:** Add the files to any folder in your website server.
 3.  **Add JavaScript Link:** Before closing the `</body>` tag of your HTML file, add the following lines:
 
     ```html
     <script src="yaccessibility.js"></script>
+    ```
+
+    Or the CDN link:
+
+    ```html
+    <script src="https://cdn.jsdelivr.net/gh/yortem/yAccessibility@latest/yaccessibility.js"></script>
+    ```
+
+4. **Call the function:**
+
+    By adding these lines or similar lines according to the explaination at the bottom of this page.
+
+    ```html
     <script>
         yAccessibility({
             language: 'he', // Set the language to Hebrew
