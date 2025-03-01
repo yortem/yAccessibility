@@ -42,17 +42,26 @@
         *   The `yAccessibility` function takes an **options object** as a parameter.
         *   **`language`:** (Optional, default: `'en'`) Specifies the desired language code (e.g., `'en'`, `'he'`). If there is no translation for the specified language, the English language will be displayed as the default.
         *   **`statement`:** (Optional, default: `null`) Specifies the URL to your accessibility statement page. If provided, a button linking to this page will be added to the widget.
+        *   **`verticalPosition`:** (Optional, default: `'bottom'`) Specifies the vertical position of the accessibility button. It can be either `'top'` or `'bottom'`.
+        *   **`verticalOffset`:** (Optional, default: `20`) Specifies the vertical offset in pixels from the top or bottom edge of the screen, depending on the `verticalPosition` setting.
+
 
     **Example of using default values:**
     ```html
-        yAccessibility(); // use default english langauge without statement page
+        <script>
+            yAccessibility(); // use default english langauge without statement page and at the bottom left
+        </script>
     ```
-    **Example of using English language with statement page:**
+    **Example of using Hebrew language with statement page and at the top left with 40 pixels from the top:**
     ```html
-        yAccessibility({
-            language: 'en', 
-            statement: 'accessibility-statement.html'
-        });
+        <script>
+            yAccessibility({
+                language: 'he', 
+                statement: 'accessibility-statement.html',
+                verticalPosition: 'top',
+                verticalOffset: 40 
+            });
+        </script>
     ```
 
 ## Multi-Language Support
