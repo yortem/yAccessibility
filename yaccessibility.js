@@ -339,6 +339,7 @@ async function yAccessibility(options = {}) {
     const isActive = accessibilityBar.classList.contains('y-accessibility-active');
     accessibilityBar.setAttribute('aria-hidden', !isActive); 
     accessibilityBar.setAttribute('aria-expanded', isActive); 
+    
 
     if (isActive) {
       accessibilityBar.setAttribute('style', 'transform: translateX(0);');
@@ -389,9 +390,12 @@ async function yAccessibility(options = {}) {
 
     if (isActive) {
       accessibilityButton.classList.toggle('y-accessibility-toggle-active');
+      accessibilityButton.setAttribute('aria-label', translations['close_accessibility_bar']);
     } else {
       accessibilityButton.classList.remove('y-accessibility-toggle-active');
+      accessibilityButton.setAttribute('aria-label', translations['open_accessibility_bar']);
     }
+
   }
 
   toggleFocusableElements(true);
