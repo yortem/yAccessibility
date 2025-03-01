@@ -1,7 +1,5 @@
 # yAccessibility - Free Accessibility Widget
 
-[![GitHub license](https://img.shields.io/github/license/yortem/yAccessibility)](https://github.com/yortem/yAccessibility/blob/main/LICENSE)
-
 **yAccessibility** is a free lightweight and easy-to-integrate accessibility widget for websites. It allows users to customize their browsing experience according to their needs, helping to make the site more accessible for people with disabilities. Important to note that adding an acessibility widget to your site doesn't make your site fully accessible. 
 
 ![A screenshot of the widget](yaccessibility-screenshot.jpg)
@@ -95,12 +93,14 @@ Each JSON file contains key-value pairs. The key is a unique identifier, and the
     "open_accessibility_bar": "Open Accessibility Bar",
     "close_accessibility_bar": "Close Accessibility Bar",
     "contrast": "Color Contrast",
+    "colorless": "Monochrome",
     "highlight_links": "Highlight Links",
     "simple_font": "Readable Font",
     "alt_text": "Image Description",
     "increase_font": "Increase Font Size",
     "decrease_font": "Decrease Font Size",
     "stop_flickering": "Stop Animations",
+    "big_cursor": "Big Cursor",
     "accessibility_statement": "Accessibility Statement",
     "reset": "Reset",
     "credits": "Accessibility widget by "
