@@ -1,6 +1,7 @@
-async function loadTranslations(language) {
+async function loadTranslations(basePath, language) {
+  const languagePath = `${basePath}/languages/${language}.json`;
   try {
-    const response = await fetch(`languages/${language}.json`);
+    const response = await fetch(languagePath);
     if (!response.ok) {
       throw new Error(`Failed to load translations for language: ${language}`);
     }
@@ -17,6 +18,63 @@ async function loadTranslations(language) {
   }
 }
 
+function getScriptBasePath() {
+  // Use document.currentScript if available
+  const currentScript = document.currentScript;
+  //console.log(currentScript);
+
+  if (currentScript && currentScript.src) {
+    const scriptSrc = currentScript.src;
+    const lastSlashIndex = scriptSrc.lastIndexOf('/');
+    if (lastSlashIndex === -1) {
+      return ''; // No slashes in the URL
+    }
+    return scriptSrc.substring(0, lastSlashIndex);
+  }
+
+  try {
+    throw new Error();
+  } catch (error) {
+    const stack = error.stack;
+    if (!stack) {
+      console.warn('Could not determine the script base path. Using the fallback.');
+      // Fallback to previous method if document.currentScript is not available
+      const scripts = document.getElementsByTagName('script');
+      const lastScript = scripts[scripts.length - 1];
+      const lastScriptSrc = lastScript.src;
+      if (!lastScriptSrc) {
+        return ''; // Inline script or something went wrong
+      }
+      const lastSlashIndex = lastScriptSrc.lastIndexOf('/');
+      if (lastSlashIndex === -1) {
+        return ''; // No slashes in the URL
+      }
+      return lastScriptSrc.substring(0, lastSlashIndex);
+    }
+
+    const match = stack.match(/((?:https?|file):\/\/.+?\/[^:/]+?(?=:))\b/); // Regex to get file path in the stacktrace
+    if (!match || match.length < 1) {
+      console.warn('Could not determine the script base path. Using the fallback.');
+      const scripts = document.getElementsByTagName('script');
+      const lastScript = scripts[scripts.length - 1];
+      const lastScriptSrc = lastScript.src;
+      if (!lastScriptSrc) {
+        return ''; // Inline script or something went wrong
+      }
+      const lastSlashIndex = lastScriptSrc.lastIndexOf('/');
+      if (lastSlashIndex === -1) {
+        return ''; // No slashes in the URL
+      }
+      return lastScriptSrc.substring(0, lastSlashIndex);
+    }
+    const scriptUrl = match[1];
+    const lastSlashIndex = scriptUrl.lastIndexOf('/');
+    if (lastSlashIndex === -1) {
+      return ''; // No slashes in the URL
+    }
+    return scriptUrl.substring(0, lastSlashIndex);
+  }
+}
 
 async function yAccessibility(options = {}) {
   
@@ -30,8 +88,10 @@ async function yAccessibility(options = {}) {
   const settings = { ...defaultOptions, ...options };
   const { language, statement, direction } = settings;
 
+  const basePath = getScriptBasePath();
 
-  const translations = await loadTranslations(language);
+  const cssPath = basePath ? `${basePath}/yaccessibility.css` : 'yaccessibility.css';
+  const translations = await loadTranslations(basePath, language);
 
   const markedButtons = [];
 
@@ -40,21 +100,14 @@ async function yAccessibility(options = {}) {
   document.body.appendChild(shadowHost);
   const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
 
-  const scriptTag = document.currentScript;
-  let basePath = '';
-  if (scriptTag) {
-    const scriptPath = scriptTag.src;
-    basePath = scriptPath.substring(0, scriptPath.lastIndexOf('/') + 1);
-  }
-
   const link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = basePath + 'yaccessibility.css'; 
+  link.href = cssPath;
   shadowRoot.appendChild(link);
 
   const link2 = document.createElement('link');
   link2.rel = 'stylesheet';
-  link2.href = basePath + 'yaccessibility.css';
+  link2.href = cssPath;
   document.head.appendChild(link2);
 
   const accessibilityButton = document.createElement('button');
