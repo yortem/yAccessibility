@@ -131,8 +131,17 @@
     color: white !important;
   }
 
-  .y-accessibility-colorless {
+  .y-accessibility-contrast input, .y-accessibility-contrast textarea {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  .y-accessibility-colorless * {
     filter: grayscale(100%) !important;
+  }
+
+  #y-accessibility-shadow-host {
+    filter: none !important;
   }
 
   .y-accessibility-stop-flickering * {
@@ -187,7 +196,8 @@
   .y-accessibility-alt-text {
     position: absolute;
     background-color: #000;
-    color: #fff;
+    border: 2px solid red;
+    color: yellow;
     padding: 10px;
     border-radius: 5px;
     z-index: 9999;
