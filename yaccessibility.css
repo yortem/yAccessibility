@@ -132,6 +132,15 @@
     color: white !important;
   }
 
+  .y-accessibility-contrast a {
+    color: yellow !important;
+  }
+
+  .y-accessibility-contrast button {
+    background-color: yellow !important;
+    color: black !important;
+  }
+
   .y-accessibility-contrast input, .y-accessibility-contrast textarea {
     background-color: white !important;
     color: black !important;
