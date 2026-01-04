@@ -1,0 +1,18 @@
+{
+    "accessibility_title": "Barrierefreiheit",
+    "open_accessibility_bar": "Barrierefreiheits-Menü öffnen",
+    "close_accessibility_bar": "Barrierefreiheits-Menü schließen",
+    "contrast": "Farbkontrast",
+    "colorless": "Schwarz-Weiß",
+    "highlight_links": "Links hervorheben",
+    "simple_font": "Lesbare Schriftart",
+    "alt_text": "Bildbeschreibung",
+    "increase_font": "Schriftgröße erhöhen",
+    "decrease_font": "Schriftgröße verringern",
+    "stop_flickering": "Animationen anhalten",
+    "read_aloud": "Vorlesen",
+    "big_cursor": "Großer Mauszeiger",
+    "accessibility_statement": "Barrierefreiheitserklärung",
+    "reset": "Zurücksetzen",
+    "credits": "Barrierefreiheits-Widget von "
+}

@@ -111,3 +111,11 @@ Each JSON file contains key-value pairs. The key is a unique identifier, and the
     "credits": "Accessibility widget by "
   }
   ```
+
+## Contributors
+
+Thanks to these people for their contributions to this project.
+
+<a href="https://github.com/yortem/yAccessibility/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=yortem/yAccessibility" />
+</a>

@@ -1,20 +1,26 @@
 async function loadTranslations(basePath, language) {
   const languagePath = `${basePath}/languages/${language}.json`;
-  console.log('Language path: '+ languagePath);
+  console.log('Language path: ' + languagePath);
+
   try {
     const response = await fetch(languagePath);
+    
     if (!response.ok) {
-      throw new Error(`Failed to load translations for language: ${language}`);
+      throw new Error(`Failed to load translations for language: ${language} (Status: ${response.status})`);
     }
+    
     return await response.json();
   } catch (error) {
     console.error(error);
-    if (language != 'en')
-    {
-      return loadTranslations('en');
-    }
-    else {
-        return {};
+
+    // Fallback logic
+    if (language !== 'en') {
+      console.log('Falling back to "en"');
+      // Critical fix: passing basePath again to the recursive call
+      return loadTranslations(basePath, 'en'); 
+    } else {
+      // If 'en' is also missing, return empty object to prevent app crash
+      return {};
     }
   }
 }
