@@ -1,6 +1,5 @@
 async function loadTranslations(basePath, language) {
   const languagePath = `${basePath}/languages/${language}.json`;
-  console.log('Language path: ' + languagePath);
 
   try {
     const response = await fetch(languagePath);
@@ -96,8 +95,6 @@ async function yAccessibility(options = {}) {
   const { language, statement, direction, verticalPosition, verticalOffset, contentElementId } = settings;
 
   const basePath = getScriptBasePath();
-  console.log('basePath: '+ basePath);
-
   const cssPath = basePath ? `${basePath}/yaccessibility.css` : 'yaccessibility.css';
   const translations = await loadTranslations(basePath, language);
 
