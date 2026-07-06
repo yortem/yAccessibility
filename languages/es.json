@@ -1,0 +1,18 @@
+{
+    "accessibility_title": "Accesibilidad",
+    "open_accessibility_bar": "Abrir Barra de Accesibilidad",
+    "close_accessibility_bar": "Cerrar Barra de Accesibilidad",
+    "contrast": "Contraste de Color",
+    "colorless": "Monocromo",
+    "highlight_links": "Resaltar Enlaces",
+    "simple_font": "Fuente Legible",
+    "alt_text": "Descripción de Imagen",
+    "increase_font": "Aumentar Tamaño de Fuente",
+    "decrease_font": "Disminuir Tamaño de Fuente",
+    "stop_flickering": "Detener Animaciones",
+    "big_cursor": "Cursor Grande",
+    "read_aloud": "Leer en Voz Alta",
+    "accessibility_statement": "Declaración de Accesibilidad",
+    "reset": "Restablecer",
+    "credits": "Widget de accesibilidad por "
+}

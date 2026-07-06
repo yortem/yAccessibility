@@ -83,7 +83,19 @@ If you want to use a CDN, skip steps 1-2.
 
 ## Multi-Language Support
 
-The widget supports multiple languages using JSON files. Each language is in a separate file within the `languages` directory. feel free to add your language if it doesn't exists in the repositery. 
+The widget supports multiple languages using JSON files. Each language is in a separate file within the `languages` directory. Feel free to add your language if it doesn't exist in the repository.
+
+### Available Languages
+
+| Language | Native Name | File |
+|----------|-------------|------|
+| English | English | `en.json` |
+| Hebrew | עברית | `he.json` |
+| German | Deutsch | `de.json` |
+| Spanish | Español | `es.json` |
+| French | Français | `fr.json` |
+| Russian | Русский | `ru.json` |
+| Arabic | العربية | `ar.json` |
 
 ### Language File Structure
 

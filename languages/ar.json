@@ -1,0 +1,18 @@
+{
+    "accessibility_title": "إمكانية الوصول",
+    "open_accessibility_bar": "فتح شريط إمكانية الوصول",
+    "close_accessibility_bar": "إغلاق شريط إمكانية الوصول",
+    "contrast": "تباين الألوان",
+    "colorless": "أحادي اللون",
+    "highlight_links": "تمييز الروابط",
+    "simple_font": "خط قابل للقراءة",
+    "alt_text": "وصف الصورة",
+    "increase_font": "تكبير الخط",
+    "decrease_font": "تصغير الخط",
+    "stop_flickering": "إيقاف الرسوم المتحركة",
+    "big_cursor": "مؤشر كبير",
+    "read_aloud": "القراءة بصوت عالٍ",
+    "accessibility_statement": "بيان إمكانية الوصول",
+    "reset": "إعادة تعيين",
+    "credits": "أداة إمكانية الوصول من "
+}

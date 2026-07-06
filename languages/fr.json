@@ -1,0 +1,18 @@
+{
+    "accessibility_title": "Accessibilité",
+    "open_accessibility_bar": "Ouvrir la barre d'accessibilité",
+    "close_accessibility_bar": "Fermer la barre d'accessibilité",
+    "contrast": "Contraste des couleurs",
+    "colorless": "Monochrome",
+    "highlight_links": "Surligner les liens",
+    "simple_font": "Police lisible",
+    "alt_text": "Description de l'image",
+    "increase_font": "Augmenter la taille de la police",
+    "decrease_font": "Diminuer la taille de la police",
+    "stop_flickering": "Arrêter les animations",
+    "big_cursor": "Grand curseur",
+    "read_aloud": "Lecture à voix haute",
+    "accessibility_statement": "Déclaration d'accessibilité",
+    "reset": "Réinitialiser",
+    "credits": "Widget d'accessibilité par "
+}

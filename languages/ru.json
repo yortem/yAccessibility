@@ -1,0 +1,18 @@
+{
+    "accessibility_title": "Доступность",
+    "open_accessibility_bar": "Открыть панель доступности",
+    "close_accessibility_bar": "Закрыть панель доступности",
+    "contrast": "Цветовой контраст",
+    "colorless": "Монохромный",
+    "highlight_links": "Выделить ссылки",
+    "simple_font": "Удобный шрифт",
+    "alt_text": "Описание изображения",
+    "increase_font": "Увеличить шрифт",
+    "decrease_font": "Уменьшить шрифт",
+    "stop_flickering": "Остановить анимацию",
+    "big_cursor": "Большой курсор",
+    "read_aloud": "Чтение вслух",
+    "accessibility_statement": "Заявление о доступности",
+    "reset": "Сбросить",
+    "credits": "Виджет доступности от "
+}
